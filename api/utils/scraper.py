@@ -1,7 +1,5 @@
 from bs4 import BeautifulSoup
 import requests
-import json
-from unidecode import unidecode
 import praw
 import os
 from random_user_agent.user_agent import UserAgent

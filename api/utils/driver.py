@@ -6,7 +6,6 @@ from utils.supabase_interface import SupabaseInterface
 from utils.scraper import Scraper
 import aiohttp
 import asyncio
-import time
 from huggingface_hub import HfApi
 
 class Driver:
