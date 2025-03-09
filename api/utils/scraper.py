@@ -4,13 +4,14 @@ import json
 from unidecode import unidecode
 import praw
 import os
+from random_user_agent.user_agent import UserAgent
 
 
 class Scraper:
     def __init__(self):
-        pass
+        self.ua = UserAgent()
     def get_brutalist_report(self, url):
-        response = requests.get(url)
+        response = requests.get(url, headers={'User-Agent': self.ua.get_random_user_agent()})
         soup = BeautifulSoup(response.text, 'html.parser')
         lis = soup.find('div', class_='brutal-grid').find_all('li')
 
@@ -24,12 +25,12 @@ class Scraper:
         for href in hrefs:
             if href:
                 title = href.get_text()
-                result.append({"title": unidecode(title.strip('...')), "link": href['href']})
+                result.append({"title": title.strip('...'), "link": href['href']})
 
         return result
 
     def get_alltop_news(self, url):
-        response = requests.get(url)
+        response = requests.get(url, headers={'User-Agent': self.ua.get_random_user_agent()})
         soup = BeautifulSoup(response.text, 'html.parser')
         hrefs = soup.find_all('a', class_='one-line-ellipsis')
 
@@ -39,13 +40,13 @@ class Scraper:
             title = href.get_text()
             if 'twitter' in href['href']:
                 break
-            result.append({"title": unidecode(title), "link": href['href']})
+            result.append({"title": title, "link": href['href']})
 
         return result
 
 
     def get_timef(self, url):
-        response = requests.get(url)
+        response = requests.get(url, headers={'User-Agent': self.ua.get_random_user_agent()})
         soup = BeautifulSoup(response.text, 'html.parser')
         hrefs = soup.find('div', class_='postList').find_all('a')
 
@@ -55,7 +56,7 @@ class Scraper:
             title = href.get_text()
             if '.com' in title:
                 continue
-            result.append({"title": unidecode(title), "link": href['href']})
+            result.append({"title": title, "link": href['href']})
 
         return result
 

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+title=$1
+
+http POST https://rhoque-doomer.hf.space/sentiment title="$title"
+
+http POST https://rhoque-doomer.hf.space/doomer title="$title"
