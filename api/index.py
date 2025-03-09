@@ -1,9 +1,9 @@
 from flask import Flask
 import threading
-from utils.main import main
+from main import main
 import os
 import dotenv
-from utils.supabase_interface import SupabaseInterface
+from supabase_interface import SupabaseInterface
 
 dotenv.load_dotenv()
 
