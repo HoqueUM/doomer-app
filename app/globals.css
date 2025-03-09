@@ -25,3 +25,7 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.link-color {
+  color: oklch(0.488 0.243 264.376);
+}

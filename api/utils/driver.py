@@ -2,8 +2,8 @@
 Main logic of adding new articles to the database.
 """
 
-from supabase_interface import SupabaseInterface
-from scraper import Scraper
+from utils.supabase_interface import SupabaseInterface
+from utils.scraper import Scraper
 import aiohttp
 import asyncio
 import time

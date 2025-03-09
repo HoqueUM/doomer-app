@@ -1,6 +1,5 @@
 import os
-from supabase import create_client, Client
-from scraper import Scraper
+from supabase import create_client
 
 
 class SupabaseInterface:
