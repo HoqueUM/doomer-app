@@ -1,6 +1,6 @@
 from flask import Flask
 import threading
-from main import main
+from api.main import main
 import os
 import dotenv
 from supabase_interface import SupabaseInterface
