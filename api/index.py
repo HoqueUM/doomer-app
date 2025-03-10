@@ -3,7 +3,7 @@ import threading
 from api.main import main
 import os
 import dotenv
-from supabase_interface import SupabaseInterface
+from api.supabase_interface import SupabaseInterface
 
 dotenv.load_dotenv()
 
