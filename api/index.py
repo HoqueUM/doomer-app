@@ -22,7 +22,7 @@ app = Flask(__name__)
 def hello_world():
     return supabase.get_news()
 
-@app.route("api/update_news")
+@app.route("/api/update_news")
 def update_news():
     main()
     return {"status": "success"}
