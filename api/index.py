@@ -22,9 +22,14 @@ app = Flask(__name__)
 def hello_world():
     return supabase.get_news()
 
-thread = threading.Thread(target=main)
+@app.route("api/update_news")
+def update_news():
+    main()
+    return {"status": "success"}
 
-thread.start()
+# thread = threading.Thread(target=main)
+
+# thread.start()
 
 
 if __name__ == "__main__":
