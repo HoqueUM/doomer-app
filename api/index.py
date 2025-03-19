@@ -1,6 +1,4 @@
 from flask import Flask
-import threading
-from api.main import main
 import os
 import dotenv
 from api.supabase_interface import SupabaseInterface
@@ -20,17 +18,7 @@ app = Flask(__name__)
 
 @app.route("/api/get_news")
 def hello_world():
-    return supabase.get_news()
-
-@app.route("/api/update_news")
-def update_news():
-    main()
-    return {"status": "success"}
-
-# thread = threading.Thread(target=main)
-
-# thread.start()
-
+    return reversed(supabase.get_news())
 
 if __name__ == "__main__":
     app.run(port=5328)
