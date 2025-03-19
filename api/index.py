@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 @app.route("/api/get_news")
 def hello_world():
-    return reversed(supabase.get_news())
+    return supabase.get_news()
 
 if __name__ == "__main__":
     app.run(port=5328)

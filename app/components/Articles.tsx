@@ -21,7 +21,7 @@ export default function Articles() {
         <div className="container mx-auto">
             <div>{loading ? ('Loading...') : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {articles.map(article => (
+                    {articles.reverse().map(article => (
                         <ArticleComponent key={article.id} article={article} />
                     ))}
                     </div>
