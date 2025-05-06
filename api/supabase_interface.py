@@ -22,7 +22,7 @@ class SupabaseInterface:
         self.supabase.table(self.table).upsert(article, on_conflict=["title"]).execute()    
     def get_news(self):
         """Get all news currently in the table."""
-        response = self.supabase.table(self.table).select("*").execute()
+        response = self.supabase.table(self.table).select("*").order("created_at", desc=True).execute()
         return response.data
     
     def delete_news(self, title):
