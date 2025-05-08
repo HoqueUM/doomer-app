@@ -1,7 +1,7 @@
 from flask import Flask
 import os
 import dotenv
-from supabase_interface import SupabaseInterface
+from api.supabase_interface import SupabaseInterface
 
 dotenv.load_dotenv()
 
