@@ -45,7 +45,7 @@ export default function Articles(): JSX.Element {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.length > 0 ? (
-            articles.slice().reverse().map((article: Article) => (
+            articles.slice().map((article: Article) => (
               <ArticleComponent key={article.id} article={article} />
             ))
           ) : (
