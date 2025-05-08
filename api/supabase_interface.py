@@ -2,6 +2,13 @@ import os
 from supabase import create_client
 
 
+def has_only_ascii(text):
+    try:
+        text.encode('ascii')
+        return True
+    except UnicodeEncodeError:
+        return False
+
 class SupabaseInterface:
     def __init__(self, url, key, table):
         self.supabase = create_client(url, key)
@@ -23,7 +30,10 @@ class SupabaseInterface:
     def get_news(self):
         """Get all news currently in the table."""
         response = self.supabase.table(self.table).select("*").order("created_at", desc=True).execute()
-        return response.data
+
+        data = response.data
+        response = [data for data in data if has_only_ascii(data["title"])]
+        return response
     
     def delete_news(self, title):
         """Delete news with the specified title."""
